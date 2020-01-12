@@ -12,9 +12,17 @@
 
 ActiveRecord::Schema.define(version: 2020_01_06_182410) do
 
-  create_table "expenses", force: :cascade do |t|
+  create_table "expenses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.date "date"
     t.string "amount"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "short_urls", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "long_url"
+    t.string "short_url"
+    t.integer "number_of_hits"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
